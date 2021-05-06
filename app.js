@@ -19,6 +19,7 @@ app.set('view engine', 'ejs')
 
 // database connection
 const dbURI = process.env.MONGODB_URI
+const PORT = process.env.PORT || 3000
 mongoose
   .connect(dbURI, {
     useNewUrlParser: true,
@@ -26,8 +27,8 @@ mongoose
     useCreateIndex: true,
   })
   .then((result) => {
-    app.listen(3000 || process.env.PORT)
-    console.log('Server Running at http://localhost:3000')
+    app.listen(PORT)
+    console.log(`Server Running at http://localhost:${PORT}`)
   })
   .catch((err) => console.log(err))
 
