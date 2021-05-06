@@ -1,0 +1,32 @@
+<div class="nav">
+
+  <div class="container">
+    <div class="nav-links">
+      <div>
+        <% if (path==='/support' ) { %>
+          <a href="/">Back</a>
+          <a href="support/submit">Submit Ticket</a>
+          <a href="support/status">Service Status</a>
+          <% } else {%>
+            <a href="/">Home</a>
+            <a href="/faq">FAQs</a>
+            <a href="/support">Support</a>
+            <% } %>
+      </div>
+
+      <div>
+        <% if(user) { %>
+          <span>
+            Welcome <%= user.email %>
+          </span>
+          <a href="/logout">Log Out</a>
+
+          <% } else { %>
+            <a href="/login">Log In</a>
+            <a href="/signup">Sign Up</a>
+            <% } %>
+      </div>
+    </div>
+
+  </div>
+</div>

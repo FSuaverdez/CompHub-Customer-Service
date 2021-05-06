@@ -1,0 +1,150 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Helvetica, sans-serif;
+}
+
+body {
+  color: #00b2ff;
+}
+a {
+  text-decoration: none;
+  margin-right: 20px;
+  display: inline-block;
+}
+
+.container {
+  max-width: 1140px;
+  margin: auto;
+}
+
+/* log-in and sign-up */
+#header {
+  padding-top: 18px;
+  padding-bottom: 18px;
+  text-align: center;
+  color: #fff;
+  background-color: #00b2ff;
+}
+.nav {
+  background-color: #00b2ff;
+  font-weight: bold;
+  color: #fff;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav a {
+  padding: 10px;
+  color: #fff;
+}
+
+.nav a:hover {
+  background-color: #83daff;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}
+.card-cont {
+  padding: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  height: 400px;
+  width: 40%;
+  display: table;
+  margin-bottom: 20px;
+}
+#log {
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 40px;
+}
+
+.input {
+  padding: 10px;
+  height: 40px;
+  width: 98%;
+}
+.btn {
+  margin-top: 10px;
+  height: 40px;
+  width: 98%;
+}
+.btn:hover {
+  cursor: pointer;
+}
+
+.btn {
+  background-color: #00b2ff;
+  border: none;
+  color: #fff;
+}
+.btn:hover {
+  background-color: #83daff;
+}
+
+.error {
+  color: red;
+  margin-bottom: 10px;
+}
+
+#details {
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 40px;
+}
+
+#title {
+  margin-bottom: 10px;
+}
+
+#subject-box {
+  height: 128px;
+  width: 98%;
+  margin-bottom: 20px;
+}
+
+#details {
+  height: 10px;
+  width: 98%;
+  margin-bottom: 40px;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  width: 50%;
+  width: 300px;
+  height: 300px;
+}
+
+#quote {
+  text-align: center;
+  font-size: 50px;
+  margin-top: 50px;
+}
+
+#questions {
+  font-size: 20px;
+  color: #00b2ff;
+  text-align: left;
+  margin-top: 5px;
+  margin-bottom: 12px;
+}
+
+#answers {
+  font-size: 20px;
+  color: #444;
+  text-align: left;
+  margin-bottom: 20px;
+}

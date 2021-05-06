@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../styles/styles.css">
+  <title>Submit Ticket</title>
+</head>
+
+<body>
+  <div id="header">
+    <h2>Submit a Request</h2>
+  </div>
+  <div class="option">
+    <a href="/support">Back</a>
+  </div>
+
+  <div class="card">
+    <div class="card-cont">
+      <div id="details">
+        <h2>Details</h2>
+      </div>
+
+      <div id="title">Choose a Request Type</div>
+      <select name="Gender" class="input">
+        <option value="0"> -</option>
+        <option value="1">General Inquiry</option>
+        <option value="2">Repair</option>
+        <option value="3">Follow Up</option>
+        <option value="4">Others</option>
+      </select>
+
+      <div>
+        <div id="title">Subject</div>
+        <textarea id="subject-box" name="subject-box" rows="4" cols="74"></textarea>
+      </div>
+
+      <div>
+        <label class="file">
+          <input type="file" id="file" aria-label="File browser example">
+          <span class="file-custom"></span>
+        </label>
+      </div>
+      <br>
+      <button class="btn">Submit</button>
+    </div>
+  </div>
+</body>
+
+</html>
