@@ -2,17 +2,21 @@ const express = require('express')
 const mongoose = require('mongoose')
 const authRoutes = require('./routes/authRoutes')
 const basicRoutes = require('./routes/basicRoutes')
+const ticketRoutes = require('./routes/ticketRoutes')
 const cookieParser = require('cookie-parser')
 const dotenv = require('dotenv')
 const { requireAuth, checkUser } = require('./middleware/authMiddleware')
 const { checkPath } = require('./middleware/basicMiddleware')
+const fileUpload = require('express-fileupload')
 
 const app = express()
 dotenv.config()
 // middleware
 app.use(express.static('public'))
-app.use(express.json())
+app.use(express.json({ limit: '50mb' }))
+app.use(express.urlencoded({ extended: true }))
 app.use(cookieParser())
+app.use(fileUpload())
 
 // view engine
 app.set('view engine', 'ejs')
@@ -35,4 +39,4 @@ mongoose
 // routes
 app.get('*', checkUser, checkPath)
 app.get('/', (req, res) => res.render('index'))
-app.use(authRoutes, basicRoutes)
+app.use(authRoutes, basicRoutes, ticketRoutes)

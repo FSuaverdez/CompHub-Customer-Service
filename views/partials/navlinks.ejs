@@ -3,10 +3,10 @@
   <div class="container">
     <div class="nav-links">
       <div>
-        <% if (path==='/support' ) { %>
-          <a href="/">Back</a>
-          <a href="support/submit">Submit Ticket</a>
-          <a href="support/status">Service Status</a>
+        <% if (path.includes('/support')) { %>
+          <a href="/">Home</a>
+          <a href="/support/submit">Submit Ticket</a>
+          <a href="/support/status">Service Status</a>
           <% } else {%>
             <a href="/">Home</a>
             <a href="/faq">FAQs</a>

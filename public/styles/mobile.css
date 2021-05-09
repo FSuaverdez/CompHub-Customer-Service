@@ -5,6 +5,10 @@
     align-items: center;
   }
 
+  .nav-links span {
+    font-size: 10px;
+  }
+
   .card-cont {
     width: 80%;
   }

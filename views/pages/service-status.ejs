@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../styles/styles.css">
-  <link rel="stylesheet" href="styles/mobile.css">
+  <link rel="stylesheet" href="/styles/styles.css">
+  <link rel="stylesheet" href="/styles/styles.css">
   <title>Service Ticket</title>
 </head>
 
@@ -14,11 +14,30 @@
   <div id="header">
     <h2>Comhub Service Status</h2>
   </div>
+  <%- include('../partials/navlinks'); -%>
+    <div class="container">
+      <a class="btn" href="/support">Back</a>
 
-  <div class="container">
-    <a class="btn" href="/support">Back</a>
-
-  </div>
+      <div class="ticket-container">
+        <% tickets.forEach(ticket=> { %>
+          <div class="ticket">
+            <a href="/support/ticket/<%= ticket._id %> ">
+              <div class="ticket-title">
+                <h2>
+                  <%= ticket.subject %>
+                </h2> <span class="status <%= ticket.isOpen? " open" :"closed" %> "><%= ticket.isOpen? "Open" :"Closed"
+                    %>
+                </span>
+              </div>
+              <p>
+                <%= ticket.body %>
+              </p>
+            </a>
+          </div>
+      </div>
+      <% }) %>
+    </div>
+    </div>
 
 </body>
 

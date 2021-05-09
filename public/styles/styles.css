@@ -57,11 +57,73 @@ a {
   padding: 20px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border-radius: 5px;
-  height: 400px;
   width: 40%;
   display: table;
   margin-bottom: 20px;
 }
+
+.ticket-container {
+  padding: 20px 0;
+}
+
+.ticket a {
+  color: #00b2ff;
+}
+
+.ticket a:hover {
+  color: #0090ce;
+}
+
+.ticket {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  max-width: 700px;
+  margin: auto;
+}
+
+.ticket-title {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.ticket p {
+  color: #444;
+  font-size: 12px;
+}
+
+.ticket-card {
+  margin: auto;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 700px;
+  padding: 10px;
+}
+
+.ticket-card h2 {
+  font-size: 36px;
+}
+
+.ticket-card p {
+  margin-top: 10px;
+  color: #444;
+}
+
+.status {
+  font-size: 10px;
+  padding: 5px;
+  border-radius: 10px;
+  color: #fff;
+  font-weight: bold;
+}
+
+.open {
+  background-color: green;
+}
+
+.closed {
+  background-color: red;
+}
+
 #log {
   text-align: center;
   margin-top: 15px;
@@ -76,6 +138,7 @@ a {
 .btn {
   margin-top: 10px;
   padding: 10px;
+  border-radius: 10px;
 }
 .btn:hover {
   cursor: pointer;
@@ -104,8 +167,14 @@ a {
 #title {
   margin-bottom: 10px;
 }
+#subject {
+  padding: 5px;
+  width: 98%;
+  margin-bottom: 20px;
+}
 
-#subject-box {
+#body {
+  padding: 5px;
   height: 128px;
   width: 98%;
   margin-bottom: 20px;
