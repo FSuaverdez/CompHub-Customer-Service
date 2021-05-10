@@ -63,6 +63,19 @@ module.exports.ticket_get = async (req, res) => {
   }
 }
 
+module.exports.ticket_close = async (req, res) => {
+  try {
+    const ticket = await Ticket.findById(req.params.id)
+    ticket.isOpen = false
+    await ticket.save()
+
+    res.redirect(`/support/ticket/${req.params.id}`)
+  } catch (err) {
+    const errors = handleErrors(err)
+    res.status(400).json({ errors })
+  }
+}
+
 module.exports.ticket_getAll = async (req, res) => {
   const user = res.locals.user
   try {

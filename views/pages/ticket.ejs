@@ -15,6 +15,7 @@
     <h2>Comhub Service Status</h2>
   </div>
   <%- include('../partials/navlinks'); -%>
+
     <div class="container">
       <a class="btn" href="/support/status">Back</a>
 
@@ -71,19 +72,26 @@
             </div>
             <% }) %>
         </div>
+
         <% } %>
 
+          <% if (user && user.isAdmin && ticket.isOpen) { %>
+            <form action="/support/ticket/<%= ticket._id %>/close" method="post">
+              <button class="btn">Close Ticket</button>
+            </form>
+            <% } %>
 
-
-          <form action="/support/ticket/<%= ticket._id %>" method="post">
-            <div class="card">
-              <div class="card-cont">
-                <div>Reply</div>
-                <textarea id="body" name="body" rows="4" cols="74" required></textarea>
-                <button class="btn">Submit</button>
-              </div>
-            </div>
-          </form>
+              <% if (ticket.isOpen) { %>
+                <form action="/support/ticket/<%= ticket._id %>" method="post">
+                  <div class="card">
+                    <div class="card-cont">
+                      <div>Reply</div>
+                      <textarea id="body" name="body" rows="4" cols="74" required></textarea>
+                      <button class="btn">Submit</button>
+                    </div>
+                  </div>
+                </form>
+                <% } %>
 
     </div>
 
