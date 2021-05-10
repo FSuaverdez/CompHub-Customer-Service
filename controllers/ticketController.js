@@ -75,19 +75,21 @@ module.exports.ticket_getAll = async (req, res) => {
 }
 
 module.exports.message_post = async (req, res) => {
+  const user = res.locals.user
+  const { body } = req.body
   try {
-    const ticket = await Ticket.findById('60977f0f26ad123ad485d4e9')
+    const ticket = await Ticket.findById(req.params.id)
 
     ticket.messages.push({
-      senderId: 'AJKLSDJKLASDJk',
-      body: 'TEJKHAJKRHJK',
+      senderName: `${user.firstName} ${user.lastName}`,
+      senderId: user._id,
+      body,
     })
 
     await ticket.save()
-    console.log(ticket)
-    // res.status(201).json({ ticket: ticket._id })
+    res.redirect(req.originalUrl)
   } catch (err) {
-    // const errors = handleErrors(err)
-    // res.status(400).json({ errors })
+    const errors = handleErrors(err)
+    res.status(400).json({ errors })
   }
 }

@@ -6,6 +6,10 @@ const imageSchema = mongoose.Schema({
 
 const messageSchema = mongoose.Schema(
   {
+    senderName: {
+      type: String,
+      required: [true, 'senderNameis required'],
+    },
     senderId: {
       type: String,
       required: [true, 'senderId is required'],
