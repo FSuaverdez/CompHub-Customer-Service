@@ -22,10 +22,11 @@ module.exports.submit_get = (req, res) => {
 
 module.exports.submit_post = async (req, res) => {
   const { requestType, subject, userId, body } = req.body
-
+  const user = res.locals.user
   try {
     const { subject, requestType, userId } = req.body
     const ticket = await Ticket.create({
+      senderName: `${user.firstName} ${user.lastName}`,
       subject,
       requestType,
       userId,

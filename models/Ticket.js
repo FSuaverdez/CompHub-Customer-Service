@@ -26,6 +26,10 @@ const messageSchema = mongoose.Schema(
 
 const ticketSchema = mongoose.Schema(
   {
+    senderName: {
+      type: String,
+      required: [true, 'senderNameis required'],
+    },
     userId: {
       type: String,
       required: [true, 'user id is required'],

@@ -23,48 +23,67 @@
           <div class="ticket-title">
             <h2>
               <%= ticket.subject %>
-            </h2> <span class="status <%= ticket.isOpen? " open" :"closed" %> "><%= ticket.isOpen? "Open" :"Closed" %>
+            </h2>
+            <span class="status <%= ticket.isOpen? " open" :"closed" %> ">
+              <%= ticket.isOpen? "Open" :"Closed" %>
             </span>
+
           </div>
+          <h5>
+            by <%= ticket.senderName %>
+          </h5>
+          <h6>
+            <%= ticket.createdAt.toLocaleString() %>
+          </h6>
           <p>
             <%= ticket.body %>
           </p>
-          <div class="attachments">
-            <h6>Attachments</h6>
+          <% if (ticket.files.length>0) { %>
+            <div class="attachments">
+              <h6>Attachments</h6>
 
-            <% ticket.files.forEach(files=> { %>
-              <a target="_blank" class="attachment" href="/attachments/<%= files.fileName %>">
-                <%= files.fileName %>
-              </a>
-              <% }) %>
-          </div>
+              <% ticket.files.forEach(files=> { %>
+                <a target="_blank" class="attachment" href="/attachments/<%= files.fileName %>">
+                  <%= files.fileName %>
+                </a>
+                <% }) %>
+            </div>
+            <% } %>
+
         </div>
       </div>
-      <div class="ticket-container">
-        <h2 class='reply'>Replies</h2>
-        <% ticket.messages.forEach(message=> { %>
 
-          <div class="ticket">
-            <h5 class="ticket-title">
-              <%= message.senderName %>
-            </h5>
-            <p>
-              <%= message.body %>
-            </p>
-          </div>
-          <% }) %>
-      </div>
+      <% if (ticket.messages.length>0) { %>
+        <div class="ticket-container">
+          <h2 class='reply'>Replies</h2>
+          <% ticket.messages.forEach(message=> { %>
 
-
-      <form action="/support/ticket/<%= ticket._id %>" method="post">
-        <div class="card">
-          <div class="card-cont">
-            <div>Reply</div>
-            <textarea id="body" name="body" rows="4" cols="74" required></textarea>
-            <button class="btn">Submit</button>
-          </div>
+            <div class="ticket">
+              <h3 class="ticket-title">
+                <%= message.senderName %>
+              </h3>
+              <h6>
+                <%= message.createdAt.toLocaleString() %>
+              </h6>
+              <p>
+                <%= message.body %>
+              </p>
+            </div>
+            <% }) %>
         </div>
-      </form>
+        <% } %>
+
+
+
+          <form action="/support/ticket/<%= ticket._id %>" method="post">
+            <div class="card">
+              <div class="card-cont">
+                <div>Reply</div>
+                <textarea id="body" name="body" rows="4" cols="74" required></textarea>
+                <button class="btn">Submit</button>
+              </div>
+            </div>
+          </form>
 
     </div>
 

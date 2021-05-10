@@ -28,15 +28,18 @@
                 </h2> <span class="status <%= ticket.isOpen? " open" :"closed" %> "><%= ticket.isOpen? "Open" :"Closed"
                     %>
                 </span>
+                <h6>
+                  <%= ticket.createdAt.toLocaleString() %>
+                </h6>
               </div>
               <p>
                 <%= ticket.body %>
               </p>
             </a>
           </div>
+          <% }) %>
       </div>
-      <% }) %>
-    </div>
+
     </div>
 
 </body>
