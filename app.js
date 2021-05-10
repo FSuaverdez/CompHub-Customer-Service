@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 const authRoutes = require('./routes/authRoutes')
 const basicRoutes = require('./routes/basicRoutes')
 const ticketRoutes = require('./routes/ticketRoutes')
+const fileRoutes = require('./routes/fileRoutes')
 const cookieParser = require('cookie-parser')
 const dotenv = require('dotenv')
 const { requireAuth, checkUser } = require('./middleware/authMiddleware')
@@ -38,5 +39,6 @@ mongoose
 
 // routes
 app.get('*', checkUser, checkPath)
+app.get('*', checkUser, checkPath)
 app.get('/', (req, res) => res.render('index'))
-app.use(authRoutes, basicRoutes, ticketRoutes)
+app.use(authRoutes, basicRoutes, ticketRoutes, fileRoutes)
