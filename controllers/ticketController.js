@@ -94,13 +94,15 @@ module.exports.message_post = async (req, res) => {
   try {
     const ticket = await Ticket.findById(req.params.id)
 
-    ticket.messages.push({
-      senderName: `${user.firstName} ${user.lastName}`,
-      senderId: user._id,
-      body,
-    })
+    if (ticket.isOpen) {
+      ticket.messages.push({
+        senderName: `${user.firstName} ${user.lastName}`,
+        senderId: user._id,
+        body,
+      })
 
-    await ticket.save()
+      await ticket.save()
+    }
     res.redirect(req.originalUrl)
   } catch (err) {
     const errors = handleErrors(err)
