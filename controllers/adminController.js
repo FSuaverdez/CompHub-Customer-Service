@@ -36,7 +36,7 @@ module.exports.ticket_getAll = async (req, res) => {
   }
 }
 
-module.exports.ticket_getAll = async (req, res) => {
+module.exports.user_getAll = async (req, res) => {
   const isAdmin = req.params.status == 'admin' ? true : false
   const isAll = req.params.status == 'all' ? true : false
   try {
