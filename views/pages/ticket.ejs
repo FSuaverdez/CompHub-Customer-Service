@@ -37,7 +37,8 @@
             by <%= ticket.senderName %>
           </h5>
           <h6>
-            <%= new Date(ticket.createdAt).setHours( new Date(ticket.createdAt) + 8 ) %>
+            <%=new Date( new Date(ticket.createdAt).setHours( new Date(ticket.createdAt).getHours() + 8
+              )).toLocaleString() %>
           </h6>
           <p>
             <%= ticket.body %>
@@ -67,7 +68,8 @@
                 <%= message.senderName %>
               </h3>
               <h6>
-                <%= new Date(message.createdAt).setHours( new Date(message.createdAt) + 8 ) %>
+                <%= new Date( new Date(message.createdAt).setHours( new Date(message.createdAt).getHours() + 8
+                  )).toLocaleString() %>
               </h6>
               <p>
                 <%= message.body %>

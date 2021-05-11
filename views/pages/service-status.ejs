@@ -29,7 +29,8 @@
                     %>
                 </span>
                 <h6>
-                  <%= ticket.createdAt.toLocaleString('en-PH', {timeStyle:'medium',dateStyle:'medium' }) %>
+                  <%= new Date( new Date(ticket.createdAt).setHours( new Date(ticket.createdAt).getHours() + 8
+                    )).toLocaleString() %>
                 </h6>
               </div>
               <p>
