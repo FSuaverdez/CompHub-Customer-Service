@@ -1,5 +1,6 @@
 const Ticket = require('../models/Ticket')
 const fs = require('fs')
+const User = require('../models/User')
 
 const handleErrors = (err) => {
   console.log(err.message, err.code)
@@ -29,6 +30,40 @@ module.exports.ticket_getAll = async (req, res) => {
     }
 
     res.render('pages/admin/adminTicket', { tickets })
+  } catch (err) {
+    const errors = handleErrors(err)
+    res.status(400).json({ errors })
+  }
+}
+
+module.exports.ticket_getAll = async (req, res) => {
+  const isAdmin = req.params.status == 'admin' ? true : false
+  const isAll = req.params.status == 'all' ? true : false
+  try {
+    let users
+    if (isAll) {
+      users = await User.find().sort({ createdAt: -1 })
+    } else {
+      users = await User.find({ isAdmin }).sort({ createdAt: -1 })
+    }
+
+    res.render('pages/admin/adminUsers', { users })
+  } catch (err) {
+    const errors = handleErrors(err)
+    res.status(400).json({ errors })
+  }
+}
+
+module.exports.user_changeRole = async (req, res) => {
+  const userId = req.params.id
+  try {
+    let user = await User.findById(userId)
+
+    user.isAdmin = !user.isAdmin
+
+    await user.save()
+    res.redirect('back')
+    // res.render('pages/admin/adminUsers', { users })
   } catch (err) {
     const errors = handleErrors(err)
     res.status(400).json({ errors })
