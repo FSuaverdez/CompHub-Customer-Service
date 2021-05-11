@@ -7,6 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/styles/styles.css">
   <link rel="stylesheet" href="/styles/mobile.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.33/moment-timezone.min.js"
+    integrity="sha512-jkvef+BAlqJubZdUhcyvaE84uD9XOoLR3e5GGX7YW7y8ywt0rwcGmTQHoxSMRzrJA3+Jh2T8Uy6f8TLU3WQhpQ=="
+    crossorigin="anonymous"></script>
   <title>Service Ticket</title>
 </head>
 
@@ -34,7 +37,7 @@
             by <%= ticket.senderName %>
           </h5>
           <h6>
-            <%= ticket.createdAt.toLocaleString('en-PH', {timeStyle:'medium',dateStyle:'medium' }) %>
+            <%= new Date(ticket.createdAt).setHours( new Date(ticket.createdAt) + 8 ) %>
           </h6>
           <p>
             <%= ticket.body %>
@@ -64,7 +67,7 @@
                 <%= message.senderName %>
               </h3>
               <h6>
-                <%= message.createdAt.toLocaleString('en-PH', {timeStyle:'medium',dateStyle:'medium' }) %>
+                <%= new Date(message.createdAt).setHours( new Date(message.createdAt) + 8 ) %>
               </h6>
               <p>
                 <%= message.body %>
