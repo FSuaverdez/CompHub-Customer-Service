@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Helvetica, sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 body {
@@ -265,4 +267,28 @@ form {
 form button {
   margin: auto;
   max-width: 200px;
+}
+
+#users {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 20px;
+}
+
+#users td,
+#users th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#users tr:hover {
+  background-color: rgb(243, 243, 243);
+}
+
+#users th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #00b2ff;
+  color: white;
 }
