@@ -34,7 +34,7 @@
             by <%= ticket.senderName %>
           </h5>
           <h6>
-            <%= ticket.createdAt.toLocaleString() %>
+            <%= ticket.createdAt.toLocaleString('en-PH', {timeStyle:'medium',dateStyle:'medium' }) %>
           </h6>
           <p>
             <%= ticket.body %>
@@ -64,7 +64,7 @@
                 <%= message.senderName %>
               </h3>
               <h6>
-                <%= message.createdAt.toLocaleString() %>
+                <%= message.createdAt.toLocaleString('en-PH', {timeStyle:'medium',dateStyle:'medium' }) %>
               </h6>
               <p>
                 <%= message.body %>

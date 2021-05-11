@@ -29,7 +29,7 @@
                     %>
                 </span>
                 <h6>
-                  <%= ticket.createdAt.toLocaleString() %>
+                  <%= ticket.createdAt.toLocaleString('en-PH', {timeStyle:'medium',dateStyle:'medium' }) %>
                 </h6>
               </div>
               <p>
