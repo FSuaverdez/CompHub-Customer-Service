@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken')
 const { create } = require('../models/User')
 const { connections } = require('mongoose')
 const dotenv = require('dotenv')
+const bcrypt = require('bcrypt')
 
 dotenv.config()
 // handle errors
@@ -54,13 +55,13 @@ const createToken = (id) => {
 }
 
 module.exports.signup_get = (req, res) => {
-  res.render('pages/signup')
+  res.render('pages/signup', { rmWhitespace: true })
 }
 module.exports.login_get = (req, res) => {
-  res.render('pages/login')
+  res.render('pages/login', { rmWhitespace: true })
 }
 module.exports.signup_post = async (req, res) => {
-  const {
+  let {
     email,
     password,
     lastName,
@@ -72,6 +73,9 @@ module.exports.signup_post = async (req, res) => {
   } = req.body
 
   try {
+    const salt = await bcrypt.genSalt()
+    password = await bcrypt.hash(password, salt)
+
     const user = await User.create({
       email,
       password,

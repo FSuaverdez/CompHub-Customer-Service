@@ -74,7 +74,6 @@
         const subject = form.subject.value
         const body = form.body.value
         const file = form.file.files[0]
-        const userId = '<%= user._id %>'
 
         console.log(requestType, subject, file)
 
@@ -84,7 +83,6 @@
         formData.append('requestType', requestType);
         formData.append('subject', subject);
         formData.append('body', body);
-        formData.append('userId', userId);
 
         if (file) {
           formData.append('file', file);

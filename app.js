@@ -41,5 +41,5 @@ mongoose
 // routes
 app.get('*', checkUser, checkPath)
 app.get('*', checkUser, checkPath)
-app.get('/', (req, res) => res.render('index'))
+app.get('/', (req, res) => res.render('index', { rmWhitespace: true }))
 app.use(authRoutes, basicRoutes, ticketRoutes, fileRoutes, adminRoutes)

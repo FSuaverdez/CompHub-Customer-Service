@@ -29,7 +29,7 @@ module.exports.ticket_getAll = async (req, res) => {
       tickets = await Ticket.find({ isOpen }).sort({ createdAt: -1 })
     }
 
-    res.render('pages/admin/adminTicket', { tickets })
+    res.render('pages/admin/adminTicket', { tickets, rmWhitespace: true })
   } catch (err) {
     const errors = handleErrors(err)
     res.status(400).json({ errors })
@@ -47,7 +47,7 @@ module.exports.user_getAll = async (req, res) => {
       users = await User.find({ isAdmin }).sort({ createdAt: -1 })
     }
 
-    res.render('pages/admin/adminUsers', { users })
+    res.render('pages/admin/adminUsers', { users, rmWhitespace: true })
   } catch (err) {
     const errors = handleErrors(err)
     res.status(400).json({ errors })

@@ -1,5 +1,8 @@
 const Ticket = require('../models/Ticket')
+const User = require('../models/User')
 const fs = require('fs')
+const nodemailer = require('nodemailer')
+const { generateHtml } = require('./generateHtml')
 
 const handleErrors = (err) => {
   console.log(err.message, err.code)
@@ -17,11 +20,12 @@ const handleErrors = (err) => {
 }
 
 module.exports.submit_get = (req, res) => {
-  res.render('pages/submit-ticket')
+  res.render('pages/submit-ticket', { rmWhitespace: true })
 }
 
 module.exports.submit_post = async (req, res) => {
-  const { requestType, subject, userId, body } = req.body
+  console.log(req.body)
+  const { requestType, subject, body } = req.body
   const user = res.locals.user
   try {
     const { subject, requestType, userId } = req.body
@@ -29,7 +33,7 @@ module.exports.submit_post = async (req, res) => {
       senderName: `${user.firstName} ${user.lastName}`,
       subject,
       requestType,
-      userId,
+      userId: user._id,
       body,
     })
 
@@ -56,7 +60,7 @@ module.exports.ticket_get = async (req, res) => {
   try {
     const ticket = await Ticket.findById(req.params.id)
 
-    res.render('pages/ticket', { ticket })
+    res.render('pages/ticket', { ticket, rmWhitespace: true })
   } catch (err) {
     const errors = handleErrors(err)
     res.status(400).json({ errors })
@@ -81,7 +85,7 @@ module.exports.ticket_getAll = async (req, res) => {
   try {
     const tickets = await Ticket.find({ userId: user._id })
 
-    res.render('pages/service-status', { tickets })
+    res.render('pages/service-status', { tickets, rmWhitespace: true })
   } catch (err) {
     const errors = handleErrors(err)
     res.status(400).json({ errors })
@@ -102,10 +106,41 @@ module.exports.message_post = async (req, res) => {
       })
 
       await ticket.save()
+      if (user._id != ticket.userId) {
+        const ticketSender = await User.findById(ticket.userId)
+        const email = ticketSender.email
+        console.log('Notify')
+        sendEmailNotification(ticket, body, email)
+      }
     }
     res.redirect(req.originalUrl)
   } catch (err) {
     const errors = handleErrors(err)
     res.status(400).json({ errors })
   }
+}
+
+const sendEmailNotification = (ticket, body, email) => {
+  let transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: 'customer.service.comphub@gmail.com',
+      pass: 'ljdljqfhfrnjifpj',
+    },
+  })
+
+  let mailOptions = {
+    from: 'customer.service.comphub@gmail.com',
+    to: email,
+    subject: `${ticket.body}`,
+    text: `New Reply\n\n${body}`,
+    html: generateHtml(ticket, body),
+  }
+
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      return console.log(error)
+    }
+    console.log('Message sent: %s', info.messageId)
+  })
 }

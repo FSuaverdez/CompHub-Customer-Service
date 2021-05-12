@@ -109,6 +109,7 @@ a {
 .ticket p {
   color: #444;
   font-size: 12px;
+  white-space: pre-wrap;
 }
 
 .ticket-card {
@@ -125,6 +126,7 @@ a {
 .ticket-card p {
   margin-top: 10px;
   color: #444;
+  white-space: pre-wrap;
 }
 
 .reply {

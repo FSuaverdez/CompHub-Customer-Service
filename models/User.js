@@ -48,13 +48,6 @@ const userSchema = new mongoose.Schema(
   }
 )
 
-// fire function before doc save to db
-userSchema.pre('save', async function (next) {
-  const salt = await bcrypt.genSalt()
-  this.password = await bcrypt.hash(this.password, salt)
-  next()
-})
-
 // Static Method to Login
 userSchema.statics.login = async function (email, password) {
   const user = await this.findOne({ email })
