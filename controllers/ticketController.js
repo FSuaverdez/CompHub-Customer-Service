@@ -132,7 +132,7 @@ const sendEmailNotification = (ticket, body, email) => {
   let mailOptions = {
     from: 'customer.service.comphub@gmail.com',
     to: email,
-    subject: `${ticket.body}`,
+    subject: `New Ticket Reply!`,
     text: `New Reply\n\n${body}`,
     html: generateHtml(ticket, body),
   }
