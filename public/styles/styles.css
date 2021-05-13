@@ -231,13 +231,13 @@ a {
   font-size: 20px;
   color: #00b2ff;
   text-align: left;
-  margin-top: 5px;
-  margin-bottom: 12px;
+  margin-top: 10px;
+  margin-bottom: 5px;
 }
 
 #answers {
   font-size: 20px;
-  color: #444;
+  color: white;
   text-align: left;
   margin-bottom: 20px;
 }
@@ -246,15 +246,21 @@ a {
   font-size: 16px;
   position: relative;
   display: inline-block;
+  cursor: pointer;
 }
 
 .dropdown-content {
   display: none;
   position: absolute;
+  left: -10px;
   background-color: #00b2ff;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  padding: 8px;
   z-index: 1;
+}
+
+.dropdown-content a {
+  width: 100%;
+  margin: 0;
 }
 
 .dropdown:hover .dropdown-content {
@@ -293,4 +299,97 @@ form button {
   text-align: left;
   background-color: #00b2ff;
   color: white;
+}
+#faq-view {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#faqs {
+  background-color: #0090ce;
+  max-width: 1000px;
+  height: 50px;
+  display: table;
+  text-align: center;
+  margin-bottom: 50px;
+  border-radius: 3px;
+  min-width: 100px;
+}
+button {
+  display: inline;
+  border-bottom: rgba(0, 0, 0, 0.2);
+  margin-right: 30px;
+  margin-left: 30px;
+  border-radius: 3px;
+  margin: 10px;
+}
+.pshort {
+  width: 150px;
+  text-align: center;
+}
+.dropbtn {
+  background-color: #00b2ff;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+.dropbtn:hover {
+  color: #00b2ff;
+  background-color: white;
+}
+.active {
+  color: #00b2ff;
+  background-color: white;
+}
+.content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  max-width: 720px;
+  text-align: center;
+  height: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  margin-bottom: 50px;
+  margin-top: 10px;
+}
+
+.show {
+  display: block;
+}
+.hide {
+  display: none;
+  overflow: hidden;
+}
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 15px;
+  max-width: 720px;
+  min-width: 100px;
+  text-align: center;
+  font-weight: bold;
+  border: none;
+  outline: none;
+}
+.accordion:hover {
+  background-color: #fff;
+}
+
+.panel {
+  padding: 10px;
+  background-color: #00b2ff;
+  text-align: center;
+  display: none;
+  overflow: hidden;
+  max-width: 720px;
+  min-width: 100px;
+  transition: max-height 0.2s ease-out;
+}
+
+.panel p {
+  font-size: 18px;
 }
