@@ -39,7 +39,7 @@ module.exports.submit_post = async (req, res) => {
 
     const image = req.files?.file
     if (image) {
-      fs.writeFileSync(__dirname + '/../uploads/' + image.name, image.data)
+      await fs.writeFile(__dirname + '/../uploads/' + image.name, image.data)
     }
 
     if (image) {
