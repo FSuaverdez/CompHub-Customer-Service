@@ -2,6 +2,7 @@ const Ticket = require('../models/Ticket')
 const User = require('../models/User')
 const fs = require('fs')
 const nodemailer = require('nodemailer')
+const path = require('path')
 const { generateHtml } = require('./generateHtml')
 
 const handleErrors = (err) => {
@@ -39,7 +40,10 @@ module.exports.submit_post = async (req, res) => {
 
     const image = req.files?.file
     if (image) {
-      fs.writeFileSync(__dirname + '/../uploads/' + image.name, image.data)
+      fs.writeFileSync(
+        path.join(__dirname, '/../uploads/', image.name),
+        image.data
+      )
       ticket.files.push({
         fileName: image.name,
       })
