@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
+html {
+  height: 100%;
+}
 * {
   margin: 0;
   padding: 0;
@@ -277,6 +280,9 @@ form button {
   max-width: 200px;
 }
 
+.home {
+  height: 100vh;
+}
 #users {
   border-collapse: collapse;
   width: 100%;
@@ -314,6 +320,7 @@ form button {
   margin-bottom: 50px;
   border-radius: 3px;
   min-width: 100px;
+  margin-bottom: 630px;
 }
 button {
   display: inline;
@@ -322,6 +329,8 @@ button {
   margin-left: 30px;
   border-radius: 3px;
   margin: 10px;
+  font-weight: bold;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 13px 25px 0 rgba(0, 0, 0, 0.2);
 }
 .pshort {
   width: 150px;
@@ -399,9 +408,13 @@ button {
   color: #fff;
   padding: 10px;
   text-align: center;
-  position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
   z-index: 3;
+  position: fixed;
+}
+.signup {
+  height: 100vh;
+  margin: 50px auto;
 }
