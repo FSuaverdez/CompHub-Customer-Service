@@ -393,3 +393,15 @@ button {
 .panel p {
   font-size: 18px;
 }
+
+.footer {
+  background-color: #00b2ff;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 3;
+}
