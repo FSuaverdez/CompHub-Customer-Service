@@ -264,7 +264,7 @@ module.exports.generateHtml = (ticket, body) => {
                       style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;">
                       <div align="center" class="button-container"
                         style="padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
-                        <a href="https://comphub-support.herokuapp.com/support/ticket/${ticket._id}"
+                        <a href="http://comphub-support.azurewebsites.net/${ticket._id}"
                           style="-webkit-text-size-adjust: none; text-decoration: none; display: inline-block; color: #ffffff; background-color: #3AAEE0; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; width: auto; width: auto; border-top: 1px solid #3AAEE0; border-right: 1px solid #3AAEE0; border-bottom: 1px solid #3AAEE0; border-left: 1px solid #3AAEE0; padding-top: 5px; padding-bottom: 5px; font-family: Arial, Helvetica Neue, Helvetica, sans-serif; text-align: center; mso-border-alt: none; word-break: keep-all;"
                           target="_blank"><span
                             style="padding-left:20px;padding-right:20px;font-size:16px;display:inline-block;letter-spacing:undefined;"><span
